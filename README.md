@@ -2,10 +2,10 @@
 
 Just bitcoin clicker game in development
 
-![game picture](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/tree/game_preview.png?raw=true)
+![game picture](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/main/readme/game_preview.png)
 
 
 ## donate via lighting bitcoin
-![donate pls](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/tree/lighting_qr.png?raw=true)
+![donate pls](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/main/readme/lightning_qr.png)
 
 guiMASTER@zbd.gg
