@@ -2,9 +2,10 @@
 
 Just bitcoin clicker game in development
 
-![game picture](./home/gui/Pictures/Screenshots/Screenshot from 2024-11-09 12-54-17.png)
+![game picture](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/tree/game_preview.png?raw=true)
 
 
-donate to lighting
-![donate pls](./home/gui/Pictures/Screenshots/Screenshot from 2024-05-13 17-56-37.png)
+## donate via lighting bitcoin
+![donate pls](https://github.com/guiOO1/bitcoin-clicker-pygame/blob/tree/lighting_qr.png?raw=true)
+
 guiMASTER@zbd.gg
