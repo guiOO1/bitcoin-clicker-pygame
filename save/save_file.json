@@ -1,0 +1,11 @@
+[
+    {
+        "saveName": "new",
+        "totalAmount": 1,
+        "upgradeCosts": {
+            "a": 3,
+            "b": 3
+        },
+        "earnPerClick": 2
+    }
+]

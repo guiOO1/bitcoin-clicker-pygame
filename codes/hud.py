@@ -3,7 +3,7 @@ from codes.click_mechanism import Click
 
 pygame.font.init()
 
-class CoinHud():
+class CoinHUD():
     def __init__(self, screen, bitcoinImg):
 
         self.screen = screen
@@ -32,3 +32,17 @@ class CoinHud():
         upgradeCost = self.ClickMechanism.checkClickingOnUpgrade()
 
         return round(totalAmount,2), upgradeCost, earnPerClick
+
+class SaveHUD():
+
+    def __init__(self):
+        pass
+
+    def showSaveHUD():
+        pass
+
+    def showOpenSaveHUD():
+        pass
+
+    def showLoadHUD():
+        pass

@@ -1,5 +1,5 @@
 import pygame
-from codes.hud import CoinHud
+from codes.hud import CoinHUD
 
 screen = pygame.display.set_mode((960, 640))
 clock = pygame.time.Clock()
@@ -7,7 +7,7 @@ running = True
 
 
 bitcoinImg = pygame.image.load(r'sprites/bitcoin.png')
-coinHud = CoinHud(screen, bitcoinImg)
+coinHUD = CoinHUD(screen, bitcoinImg)
 
 pygame.init()
 while running:
@@ -19,7 +19,7 @@ while running:
 
     screen.fill("white")
     
-    totalAmount, upgradeCost, earnPerClick = coinHud.updateVariables()
+    totalAmount, upgradeCost, earnPerClick = coinHUD.updateVariables()
     
     coinHud.showHud(totalAmount, upgradeCost, earnPerClick)
 
