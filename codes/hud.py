@@ -4,19 +4,22 @@ from codes.click_mechanism import Click
 pygame.font.init()
 
 class CoinHUD():
-    def __init__(self, screen, bitcoinImg):
+    def __init__(self, screen, bitcoinImg, initialTotalAmount=0, initialEarnPerClick=1, initialUpgradeCosts={
+            'upgrade1': 20,
+            'upgrade2': 300
+        }):
 
         self.screen = screen
         self.bitcoinImg = bitcoinImg
 
-        self.ClickMechanism = Click(self.screen)
+        self.ClickMechanism = Click(self.screen, initialTotalAmount, initialEarnPerClick, initialUpgradeCosts)
 
-    def showHud(self, totalAmount, upgradeCost, earnPerClick):
+    def showHUD(self, totalAmount, earnPerClick, upgradeCosts):
         hudFont = pygame.font.SysFont('Arial', 40, bold=True)
 
         hudCounter = hudFont.render(f'{totalAmount} satoshis', False, (0,0,0))
-        hudUpgrade1 = hudFont.render(f'cost:{upgradeCost["upgrade1"]} satoshis', False, (0,0,0))
-        hudUpgrade2 = hudFont.render(f'cost:{upgradeCost["upgrade2"]} satoshis', False, (0,0,0))
+        hudUpgrade1 = hudFont.render(f'cost:{upgradeCosts["upgrade1"]} satoshis', False, (0,0,0))
+        hudUpgrade2 = hudFont.render(f'cost:{upgradeCosts["upgrade2"]} satoshis', False, (0,0,0))
         hudEarnPerClick = hudFont.render(f'{earnPerClick} satoshis p/click', False, (255,0,0))
 
         self.screen.blit(hudCounter, (200,0))

@@ -6,10 +6,11 @@ pygame.mixer.init()
 
 class Click():
 
-    def __init__(self, screen):
-        self.totalAmount = 0
+    def __init__(self, screen, totalAmount, upgradeCosts, earnPerClick):
 
-        self.earnPerClick = 1
+        self.totalAmount = totalAmount
+
+        self.earnPerClick = earnPerClick
 
         self.screen = screen
 
@@ -22,10 +23,7 @@ class Click():
             'upgrade2': pygame.draw.rect(self.screen, "black", (800,300,150,30))
             } 
         
-        self.upgradeCosts = {
-            'upgrade1': 20,
-            'upgrade2': 300
-        }
+        self.upgradeCosts = upgradeCosts
 
 
     def getMousePosition(self):
@@ -34,8 +32,8 @@ class Click():
         return mouseX, mouseY
 
 
-    def checkClickingOnBitcoin(self, btcImage):
-        mouseX, mouseY = Click(self.screen).getMousePosition()
+    def checkClickingOnBitcoin(self, bitcoinImg):
+        mouseX, mouseY = Click(self.screen, self.totalAmount, self.earnPerClick, self.upgradeCosts).getMousePosition()
         self.mouseRect = pygame.Rect(mouseX,mouseY, 3, 3)
         
         isClicking = (pygame.mouse.get_pressed(num_buttons=3)[0])
@@ -43,12 +41,12 @@ class Click():
 
         pygame.draw.rect(self.screen, "white", self.mouseRect)
 
-        btcTransform = btcImage
+        btcTransform = bitcoinImg
 
         if isClicking and isColliding:
             self.totalAmount += self.earnPerClick
 
-            btcTransform = pygame.transform.rotozoom(btcImage, random.randint(3, 360), random.uniform(0.8, 1.2))
+            btcTransform = pygame.transform.rotozoom(bitcoinImg, random.randint(3, 360), random.uniform(0.8, 1.2))
 
             self.clickAudio
 

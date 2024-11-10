@@ -3,8 +3,8 @@
         "saveName": "new",
         "totalAmount": 1,
         "upgradeCosts": {
-            "a": 3,
-            "b": 3
+            "upgrade1": 3,
+            "upgrade2": 3
         },
         "earnPerClick": 2
     }

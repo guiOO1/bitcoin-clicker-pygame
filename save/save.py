@@ -1,52 +1,55 @@
 import json
 
-def save_game(saveName, totalAmount, upgradeCosts, earnPerClick):
-    with open('./save/save_file.json', 'r') as save_file:
-        old_data = json.load(save_file)
+class SaveMechanism(): 
 
-    data = {
-        "saveName": saveName,
-        "totalAmount": totalAmount,
-        "upgradeCosts": upgradeCosts,
-        "earnPerClick": earnPerClick
-    }
-    
-    feedback = 200
-
-    try:
-        for saves in old_data:
-            print(saves)
-            if saveName == saves["saveName"]:
-                data = None
-                feedback = 409
-            break
-    except:
+    def __init__(self):
         pass
 
-    old_data.append(data)
+    def save_game(self, saveName, totalAmount, upgradeCosts, earnPerClick):
+        with open('./save/save_file.json', 'r') as save_file:
+            old_data = json.load(save_file)
 
-    new_data = json.dumps(old_data, indent=4)
+        data = {
+            "saveName": saveName,
+            "totalAmount": totalAmount,
+            "upgradeCosts": upgradeCosts,
+            "earnPerClick": earnPerClick
+        }
+        
+        feedback = 200
 
-    if data is not None:
-        with open('./save/save_file.json', 'w') as save_file:
-            save_file.write(new_data)
+        try:
+            for saves in old_data:
+                print(saves)
+                if saveName == saves["saveName"]:
+                    data = None
+                    feedback = 409
+                break
+        except:
+            pass
 
-    return feedback
+        old_data.append(data)
 
-def load_game(saveName):
-    with open('./save/save_file.json', 'r') as save_file:
-        data_file = json.load(save_file)
-    
-        for saveName in data_file["saveName"]:
-            if saveName == data_file["saveName"]:
+        new_data = json.dumps(old_data, indent=4)
 
-                totalAmount = data_file["totalAmount"]
-                upgradeCosts = data_file["upgradeCosts"]
-                earnPerClick = data_file["earnPerClick"]
+        if data is not None:
+            with open('./save/save_file.json', 'w') as save_file:
+                save_file.write(new_data)
 
-                feedback = 200
+        return feedback
 
-                return saveName, totalAmount, upgradeCosts, earnPerClick, feedback
-            break
+    def load_game(self, saveName):
+        with open('./save/save_file.json', 'r') as save_file:
+            data_file = json.load(save_file)
+        
+            for save in data_file:
+                if saveName == save["saveName"]:
 
-save_game("new", 1,{'a': 3, 'b': 3}, 2)
+                    totalAmount = save["totalAmount"]
+                    upgradeCosts = save["upgradeCosts"]
+                    earnPerClick = save["earnPerClick"]
+
+                    feedback = 200
+
+                    return saveName, totalAmount, upgradeCosts, earnPerClick, feedback
+                break
